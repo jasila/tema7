@@ -39,11 +39,11 @@
         let cirkelURL = `http://mabe-kea.dk/E19/pics/pig.png`;
 
         document.addEventListener("DOMContentLoaded", start);
-        start() {}
 
-        document.querySelector(".firkant").innerHTML = `<img src = ${firkantURL} alt= "grøn frø">`;
-
-        document.querySelector(".cirkel").innerHTML = `<img src = ${cirkelURL} alt= "lyserød gris">`;
+        function start() {
+            document.querySelector(".firkant").innerHTML = `<img src = ${firkantURL} alt= "grøn frø">`;
+            document.querySelector(".cirkel").innerHTML = `<img src = ${cirkelURL} alt= "lyserød gris">`;
+        }
 
     </script>
 </body>
