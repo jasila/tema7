@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visalle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #d0cac3;
+            color: #13137e;
+        }
+
+        article {
+            padding: 20px;
+            background-color: #e0e0dd;
+            font-family: eurostile, sans-serif;
+
+
+        }
+
+        section {
+            width: 80vw;
+            margin: 1vw auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 1rem;
+
+
+        }
+
+        img {
+            width: 100%;
+
+        }
+
+        p {
+            font-size: 1rem;
+            font-family: eb-garamond, serif;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: #13137e;
+        }
+
+        a:hover {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="liste"></section>
+    <h2>Persongalleri</h2>
+
+    <template>
+        <article class="Person">
+            <h2> </h2>
+            <p class="navn"> </p>
+            <img src="" alt="">
+            <a class="github"> </a>
+
+
+            <p class=""> </p>
+        </article>
+    </template>
+
+    <script>
+        let personListe = [];
+
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+
+            const myJson = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+            console.log(myJson);
+
+            personListe = await myJson.json();
+            console.log(hentJson);
+
+
+            personListeFunktion();
+        }
+
+        function personListeFunktion() {
+            const temp = document.querySelector("template").content;
+            const liste = document.querySelector("#liste");
+
+
+
+            personListe.feed.entry.forEach(person => {
+                const klon = temp.cloneNode(true);
+                // console.log(klon);
+
+                klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                klon.querySelector("h2").setAttribute("id", "person");
+                klon.querySelector("img").src = person.gsx$billede.$t;
+                klon.querySelector("img").alt = "Billede af " + person.gsx$billede.$t;
+                klon.querySelector(".github").textContent = "github" + person.gsx$github.$t;
+
+                let a = klon.querySelector("a");
+                a.textContent = "github: " + person.gsx$github.$t;
+                a.href = "https://www.github.com/" + person.gsx$github.$t;
+
+                liste.appendChild(klon);
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>
