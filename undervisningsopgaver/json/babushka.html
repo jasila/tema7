@@ -32,7 +32,7 @@
 
         p {
             font-size: 1rem;
-            font-family: kremlin, serif;
+            font-family: eb-garamond, serif;
 
         }
 
@@ -47,19 +47,20 @@
     <section id="liste"></section>
 
     <template>
-        <article class="Person">
-            <h2> </h2>
+        <article class="Menu">
+            <h2></h2>
             <p class="navn"> </p>
             <img src="" alt="">
-            <a class="github"> </a>
+            <p class="oprindelse"> </p>
 
+            <p class="pris"> </p>
 
             <p class=""> </p>
         </article>
     </template>
 
     <script>
-        let personListe = [];
+        let menuOversigt = [];
 
 
 
@@ -74,29 +75,28 @@
             const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
             console.log(myJson);
 
-            personListe = await myJson.json();
+            menuOversigt = await myJson.json();
             console.log(hentJson);
 
 
-            personListeFunktion();
+            menuOversigtFunktion();
         }
 
-        function personListeFunktion() {
+        function menuOversigtFunktion() {
             const temp = document.querySelector("template").content;
             const liste = document.querySelector("#liste");
 
 
 
-            personListe.feed.entry.forEach(person => {
+            menuOversigt.feed.entry.forEach(menu => {
                 const klon = temp.cloneNode(true);
                 // console.log(klon);
 
-                klon.querySelector("h2").textContent = person.gsx$navn.$t;
-                klon.querySelector("h2").setAttribute("id", "person");
-                klon.querySelector("img").src = person.gsx$billede.$t;
-                klon.querySelector("img").alt = "Billede af " + person.gsx$billede.$t;
-
-
+                klon.querySelector("h2").textContent = menu.gsx$navn.$t;
+                klon.querySelector("h2").setAttribute("id", "menu");
+                klon.querySelector("img").alt = "Billede af " + menu.gsx$billede.$t;
+                klon.querySelector(".pris").textContent = "Pris: " + menu.gsx$pris.$t + ",-";
+                klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
                 liste.appendChild(klon);
 
             })
