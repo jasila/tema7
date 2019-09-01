@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bistro Babushka</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #d0cac3;
+            color: #b71717;
+        }
+
+        article {
+            padding: 20px;
+            background-color: #e0e0dd;
+            font-family: eurostile, sans-serif;
+        }
+
+        section {
+            width: 80vw;
+            margin: 1vw auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        article img {
+            width: 100%;
+
+        }
+
+        p {
+            font-size: 1rem;
+            font-family: kremlin, serif;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: #13137e;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="liste"></section>
+
+    <template>
+        <article class="Person">
+            <h2> </h2>
+            <p class="navn"> </p>
+            <img src="" alt="">
+            <a class="github"> </a>
+
+
+            <p class=""> </p>
+        </article>
+    </template>
+
+    <script>
+        let personListe = [];
+
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+
+            const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            console.log(myJson);
+
+            personListe = await myJson.json();
+            console.log(hentJson);
+
+
+            personListeFunktion();
+        }
+
+        function personListeFunktion() {
+            const temp = document.querySelector("template").content;
+            const liste = document.querySelector("#liste");
+
+
+
+            personListe.feed.entry.forEach(person => {
+                const klon = temp.cloneNode(true);
+                // console.log(klon);
+
+                klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                klon.querySelector("h2").setAttribute("id", "person");
+                klon.querySelector("img").src = person.gsx$billede.$t;
+                klon.querySelector("img").alt = "Billede af " + person.gsx$billede.$t;
+
+
+                liste.appendChild(klon);
+
+            })
+        }
+    </script>
+</body></html>
+
+
