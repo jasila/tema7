@@ -8,7 +8,7 @@
     <style>
         body {
             background-color: #d0cac3;
-            color: #b71717;
+            color: #050000;
         }
 
         article {
@@ -30,9 +30,32 @@
 
         }
 
+        h1 {
+            font-family: eurostile, sans-serif;
+            text-align: center;
+            font-size: 4rem;
+
+
+        }
+
+        .menu {
+            font-family: eurostile, sans-serif;
+            text-align: center;
+            font-size: 3rem;
+
+
+        }
+
+        .pris {
+            font-size: 2rem;
+            font-family: eb-eurostile, serif;
+            text-align: right;
+
+
+        }
+
         p {
-            font-size: 1rem;
-            font-family: eb-garamond, serif;
+            font-family: eurostile, sans-serif;
 
         }
 
@@ -40,10 +63,51 @@
             text-decoration: none;
             color: #13137e;
         }
+
+        nav {
+            text-decoration: none;
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        button {
+            background-color: #d0cac3;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 4rem;
+            font-family: eurostile, sans-serif;
+
+        }
+
+        img {
+            filter: grayscale(100%);
+            transition: .7s;
+        }
+
+        img:hover {
+            filter: grayscale(0%);
+
+        }
+
+        .kategori {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
+    <h1>BISTRO BABUSHKA</h1>
+    <nav>
+        <button data-kategori="alle">Alle</button>
+        <button data-kategori="forretter" class="valgt">Forretter</button>
+        <button data-kategori="hovedretter">Hovedret</button>
+        <button data-kategori="desserter">Dessert</button>
+    </nav>
+
     <section id="liste"></section>
 
     <template>
@@ -57,19 +121,40 @@
 
             <p class="pris"> </p>
 
+            <p class="kategori"> </p>
+
             <p class=""> </p>
         </article>
     </template>
 
     <script>
         let menuOversigt = [];
+        let filter = "forretter"
+
 
 
 
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
+
+            let button = document.querySelectorAll("button");
+
+            button.forEach(knap => knap.addEventListener("click", filtrerMad));
+
             hentJson();
+        }
+
+        function filtrerMad() {
+
+            console.log("hej")
+
+            filter = this.dataset.kategori; //sæt filter til aktuel kategori
+            //            document.querySelector(".valgt").classList.remove("valgt")
+            //
+            //            this.classList.add("valgt") // marker den nyvalgte knap
+            menuOversigtFunktion(); // kald funktionen vis igen med nyt filter
+
         }
 
         //henter min data
@@ -90,24 +175,30 @@
         function menuOversigtFunktion() {
             const temp = document.querySelector("template").content;
             const liste = document.querySelector("#liste");
+
+            liste.textContent = "";
             //alt jeg putter ind i menuoversigt
             menuOversigt.feed.entry.forEach(menu => {
                 const klon = temp.cloneNode(true);
 
+
                 // console.log(klon);
 
-                klon.querySelector("h2").textContent = menu.gsx$navn.$t;
-                klon.querySelector("h2").setAttribute("id", "menu");
-                klon.querySelector("img").src = "/imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
-                klon.querySelector("img").alt = "billedeaf" + menu.gsx$billede.$t;
-                klon.querySelector(".pris").textContent = "Pris: " + menu.gsx$pris.$t + ",-";
-                klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
-                //den der gør det bliver vidst
-                liste.appendChild(klon);
+                if (menu.gsx$kategori.$t == filter || filter == "alle") {
 
+
+
+                    klon.querySelector("h2").textContent = menu.gsx$navn.$t;
+                    klon.querySelector("h2").setAttribute("id", "menu");
+                    klon.querySelector("img").src = "/imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector("img").alt = "billedeaf" + menu.gsx$billede.$t;
+                    klon.querySelector(".pris").textContent = +menu.gsx$pris.$t + ",-";
+                    klon.querySelector(".kategori").textContent = menu.gsx$kategori.$t;
+                    klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
+                    //den der gør det bliver vidst
+                    liste.appendChild(klon);
+                }
             })
         }
     </script>
 </body></html>
-
-
