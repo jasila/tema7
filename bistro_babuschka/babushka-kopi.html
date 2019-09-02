@@ -25,7 +25,7 @@
             grid-gap: 1rem;
         }
 
-        article img {
+        img {
             width: 100%;
 
         }
@@ -50,7 +50,9 @@
         <article class="Menu">
             <h2></h2>
             <p class="navn"> </p>
+
             <img src="" alt="">
+
             <p class="oprindelse"> </p>
 
             <p class="pris"> </p>
@@ -70,6 +72,8 @@
             hentJson();
         }
 
+        //henter min data
+
         async function hentJson() {
 
             const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
@@ -82,21 +86,23 @@
             menuOversigtFunktion();
         }
 
+        //viser al min data
         function menuOversigtFunktion() {
             const temp = document.querySelector("template").content;
             const liste = document.querySelector("#liste");
-
-
-
+            //alt jeg putter ind i menuoversigt
             menuOversigt.feed.entry.forEach(menu => {
                 const klon = temp.cloneNode(true);
+
                 // console.log(klon);
 
                 klon.querySelector("h2").textContent = menu.gsx$navn.$t;
                 klon.querySelector("h2").setAttribute("id", "menu");
-                klon.querySelector("img").alt = "Billede af " + menu.gsx$billede.$t;
+                klon.querySelector("img").src = "/imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
+                klon.querySelector("img").alt = "billedeaf" + menu.gsx$billede.$t;
                 klon.querySelector(".pris").textContent = "Pris: " + menu.gsx$pris.$t + ",-";
                 klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
+                //den der gør det bliver vidst
                 liste.appendChild(klon);
 
             })
