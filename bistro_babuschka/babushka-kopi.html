@@ -94,7 +94,7 @@
 
                 klon.querySelector("h2").textContent = menu.gsx$navn.$t;
                 klon.querySelector("h2").setAttribute("id", "menu");
-                klon.querySelector("img").src = "/imgs/small" + menu.gsx$billede.$t + "-sm.jpg";
+                klon.querySelector("img").alt = "Billede af " + menu.gsx$billede.$t;
                 klon.querySelector(".pris").textContent = "Pris: " + menu.gsx$pris.$t + ",-";
                 klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
                 liste.appendChild(klon);

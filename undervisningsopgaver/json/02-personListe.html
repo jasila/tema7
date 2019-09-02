@@ -2,19 +2,21 @@
 <html>
 
 <head>
-    <title>Bistro Babushka</title>
+    <title>Visalle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             background-color: #d0cac3;
-            color: #b71717;
+            color: #13137e;
         }
 
         article {
             padding: 20px;
             background-color: #e0e0dd;
             font-family: eurostile, sans-serif;
+
+
         }
 
         section {
@@ -23,6 +25,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             grid-gap: 1rem;
+
+
         }
 
         article img {
@@ -40,27 +44,32 @@
             text-decoration: none;
             color: #13137e;
         }
+
+        a:hover {
+            background-color: yellow;
+        }
+
     </style>
 </head>
 
 <body>
     <section id="liste"></section>
+    <h2>Persongalleri</h2>
 
     <template>
-        <article class="Menu">
-            <h2></h2>
+        <article class="Person">
+            <h2> </h2>
             <p class="navn"> </p>
             <img src="" alt="">
-            <p class="oprindelse"> </p>
+            <a class="github"> </a>
 
-            <p class="pris"> </p>
 
             <p class=""> </p>
         </article>
     </template>
 
     <script>
-        let menuOversigt = [];
+        let personListe = [];
 
 
 
@@ -72,36 +81,42 @@
 
         async function hentJson() {
 
-            const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            const myJson = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
             console.log(myJson);
 
-            menuOversigt = await myJson.json();
+            personListe = await myJson.json();
             console.log(hentJson);
 
 
-            menuOversigtFunktion();
+            personListeFunktion();
         }
 
-        function menuOversigtFunktion() {
+        function personListeFunktion() {
             const temp = document.querySelector("template").content;
             const liste = document.querySelector("#liste");
 
 
 
-            menuOversigt.feed.entry.forEach(menu => {
+            personListe.feed.entry.forEach(person => {
                 const klon = temp.cloneNode(true);
                 // console.log(klon);
 
-                klon.querySelector("h2").textContent = menu.gsx$navn.$t;
-                klon.querySelector("h2").setAttribute("id", "menu");
-                klon.querySelector("img").src = "/imgs/small" + menu.gsx$billede.$t + "-sm.jpg";
-                klon.querySelector(".pris").textContent = "Pris: " + menu.gsx$pris.$t + ",-";
-                klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
+                klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                klon.querySelector("h2").setAttribute("id", "person");
+                klon.querySelector("img").src = person.gsx$billede.$t;
+                klon.querySelector("img").alt = "Billede af " + person.gsx$billede.$t;
+                klon.querySelector(".github").textContent = "github" + person.gsx$github.$t;
+
+                let a = klon.querySelector("a");
+                a.textContent = "github: " + person.gsx$github.$t;
+                a.href = "https://www.github.com/" + person.gsx$github.$t;
+
                 liste.appendChild(klon);
 
             })
         }
+
     </script>
-</body></html>
+</body>
 
-
+</html>
