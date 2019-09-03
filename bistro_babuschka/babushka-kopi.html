@@ -83,9 +83,7 @@
 
         }
 
-        splash {
-            filter: grayscale(0%);
-        }
+
 
         /*
         img {
@@ -102,6 +100,42 @@
         .kategori {
             display: none;
         }
+
+        .pil_box {
+
+            text-align: center;
+            width: 5%;
+            margin-top: 0.5vh;
+            margin-bottom: ;
+            background-color: #d0cac3;
+            left: 45vw;
+            position: absolute;
+        }
+
+        .blink {
+            animation-name: blink_kf;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+
+        }
+
+
+        @keyframes blink_kf {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+
+        }
+
+        #lol {
+            margin-top: 30vh;
+        }
     </style>
 </head>
 
@@ -110,11 +144,16 @@
 
         <img class="logo" src="splash.svg" alt="jen">
 
-
+        <article class="blink pil_box">
+            <a href="babushka-kopi.html#lol"> <img class="pil" src="pil.png" alt="arrow_down"></a>
+        </article>
 
 
     </splash>
-    <h1>MENU</h1>
+
+
+
+    <h1 id="lol">MENU</h1>
     <nav>
         <!--        <button data-kategori="alle">Alle</button>-->
         <button data-kategori="hovedretter" class="valgt">Hovedretter</button>
