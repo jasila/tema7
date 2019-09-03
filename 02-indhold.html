@@ -21,7 +21,7 @@
         }
 
         .valgt {
-            background-color: white;
+            background-color: #de0000;
         }
 
         #detalje {
@@ -43,12 +43,17 @@
             background-color: #ded7d7;
         }
 
+
         #detalje .person {
             width: 60vw;
             min-height: 50vh;
             margin: 4rem auto;
             padding: 4rem;
             background: white;
+        }
+
+        .hidden {
+            display: hidden;
         }
 
     </style>
@@ -66,6 +71,7 @@
     <section id="liste"></section>
     <section id="detalje">
         <article class="person">
+            <h2>gf</h2>
             <button class="luk"> ✕ </button>
             <img src="" alt="">
             <p>Github:
@@ -83,13 +89,18 @@
         document.addEventListener("DOMContentLoaded", start);
         const url = `https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json`;
         let personer;
-        let filter = "alle";
+        let filter = "nav button";
         // første funktion der kaldes efter DOM er loaded
         function start() {
             const filterKnapper = document.querySelectorAll("button");
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
             document.querySelector("#detalje").style.display = "none";
             loadData();
+            skjulDetalje();
+        }
+
+        function skjulDetalje() {
+            document.querySelector("#detalje").classList.toggle("hidden");
         }
         // funktion der filtrerer personer (json)
         function filtrerPersoner() {
@@ -130,18 +141,17 @@
 
         function visDetalje(person) {
             console.log(person)
-
-            document.querySelector("#detalje").style.display = "block";
+            document.querySelector("#detalje .luk").addEventListener("click", skjulDetalje);
+            //            document.querySelector("#detalje").style.display = "block";
+            document.querySelector("#detalje").classList.toggle("hidden");
             document.querySelector("#detalje h2").textContent = person.gsx$navn.$t;
-            document.querySelector("#detalje img").src = person.gsx$navn.$t;
-            document.querySelector("#detalje img").alt = `Portræt af ${person.gsx$navn.$t};`
-            documnet.querySelector("#detalje .githubLink").href = `https://github.com/${person.gsx$billede.$t}`;
-            documnet.querySelector("#detalje .githubLink").textContent = `github.com/${person.gsx$billede.$t}`;
+            document.querySelector("#detalje img").src = person.gsx$billede.$t;
+            document.querySelector("#detalje img").alt = `Portræt af ${person.gsx$billede.$t};`
+            documnet.querySelector("#detalje .githubLink").href = `https://github.com/${person.gsx$github.$t}`;
+            documnet.querySelector("#detalje .githubLink").textContent = `github.com/${person.gsx$github.$t}`;
 
 
         }
-
-
 
     </script>
 </body>
