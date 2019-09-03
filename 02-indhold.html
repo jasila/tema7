@@ -32,6 +32,7 @@
             height: 100vh;
             background: hsla(282, 14%, 12%, 0.74);
             overflow: scroll;
+            display: none;
         }
 
         #detalje .luk {
@@ -49,6 +50,7 @@
             padding: 4rem;
             background: white;
         }
+
     </style>
 </head>
 
@@ -86,12 +88,14 @@
         function start() {
             const filterKnapper = document.querySelectorAll("button");
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
+            document.querySelector("#detalje").style.display = "none";
             loadData();
         }
         // funktion der filtrerer personer (json)
         function filtrerPersoner() {
             filter = this.dataset.køn; // sæt variabel "filter" til aktuel værdi
             document.querySelector(".valgt").classList.remove("valgt"); // fjern klassen valgt fra aktuel knap
+
             this.classList.add("valgt") // marker den nyvalgte knap
             vis(); // kald funktionen vis igen med nyt filter
         }
@@ -112,9 +116,34 @@
                     klon.querySelector(".navn").textContent = person.gsx$navn.$t;
                     klon.querySelector(".navn").textContent += " " + person.gsx$hold.$t;
                     klon.querySelector(".profil-billede").src = person.gsx$billede.$t;
+
+                    klon.querySelector(".person").addEventListener("click", () => {
+                        visDetalje(person);
+                    });
                     dest.appendChild(klon);
+
                 }
+
+
             })
         }
+
+        function visDetalje(person) {
+            console.log(person)
+
+            document.querySelector("#detalje").style.display = "block";
+            document.querySelector("#detalje h2").textContent = person.gsx$navn.$t;
+            document.querySelector("#detalje img").src = person.gsx$navn.$t;
+            document.querySelector("#detalje img").alt = `Portræt af ${person.gsx$navn.$t};`
+            documnet.querySelector("#detalje .githubLink").href = `https://github.com/${person.gsx$billede.$t}`;
+            documnet.querySelector("#detalje .githubLink").textContent = `github.com/${person.gsx$billede.$t}`;
+
+
+        }
+
+
+
     </script>
-</body></html>
+</body>
+
+</html>
