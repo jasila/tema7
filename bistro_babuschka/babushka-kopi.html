@@ -67,7 +67,7 @@
         nav {
             text-decoration: none;
             text-align: center;
-            font-size: 4rem;
+            cursor: pointer;
         }
 
         button {
@@ -78,15 +78,21 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 4rem;
             font-family: eurostile, sans-serif;
+            font-size: 2.2rem;
 
         }
 
+        splash {
+            filter: grayscale(0%);
+        }
+
+        /*
         img {
             filter: grayscale(100%);
             transition: .7s;
         }
+*/
 
         img:hover {
             filter: grayscale(0%);
@@ -96,17 +102,24 @@
         .kategori {
             display: none;
         }
-
     </style>
 </head>
 
 <body>
-    <h1>BISTRO BABUSHKA</h1>
+    <splash>
+
+        <img class="logo" src="splash.svg" alt="jen">
+
+
+
+
+    </splash>
+    <h1>MENU</h1>
     <nav>
-        <button data-kategori="alle">Alle</button>
-        <button data-kategori="forretter" class="valgt">Forretter</button>
-        <button data-kategori="hovedretter">Hovedret</button>
-        <button data-kategori="desserter">Dessert</button>
+        <!--        <button data-kategori="alle">Alle</button>-->
+        <button data-kategori="hovedretter" class="valgt">Hovedretter</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="desserter">Desserter</button>
         <button data-kategori="sideorders">Sideorders</button>
         <button data-kategori="drikkevarer">Drikkevarer</button>
 
@@ -205,8 +218,5 @@
                 }
             })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
