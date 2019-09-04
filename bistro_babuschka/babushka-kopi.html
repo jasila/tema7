@@ -57,7 +57,8 @@
             width: 100vw;
             height: 100vw;
             background: #d0cac3;
-
+            overflow: scroll;
+            margin: 0;
         }
 
         #detalje .luk {
@@ -69,7 +70,7 @@
 
         #detalje .indhold {
 
-            width: 60vw;
+            width: 50vw;
             min-height: 50vh;
             margin: 4rem auto;
             padding: 4rem;
@@ -178,7 +179,6 @@
         #lol {
             margin-top: 50vh;
         }
-
     </style>
 </head>
 
@@ -213,7 +213,18 @@
         <article class="indhold">
             <button class="luk">x</button>
             <h2></h2>
+            <p class="oprindelse"> </p>
+
             <img src="" alt="">
+            <p class="navn"> </p>
+
+            <img src="" alt="">
+
+            <p class="beskrivelse"> </p>
+
+            <p class="pris"> </p>
+
+            <p class="kategori"> </p>
         </article>
     </section>
 
@@ -240,13 +251,13 @@
         let filter = "forretter"
 
 
-
-
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
 
-            let button = document.querySelectorAll("button");
+            document.querySelector("#detalje").style.display = "none";
+
+            let button = document.querySelectorAll("nav button");
 
             button.forEach(knap => knap.addEventListener("click", filtrerMad));
 
@@ -268,6 +279,7 @@
         //henter min data
 
         async function hentJson() {
+            console.log("hejehj")
 
             const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
             console.log(myJson);
@@ -281,6 +293,7 @@
 
         //viser al min data
         function menuOversigtFunktion() {
+            console.log("her")
             const temp = document.querySelector("template").content;
             const liste = document.querySelector("#liste");
 
@@ -309,32 +322,31 @@
 
 
                     liste.lastElementChild.addEventListener("click", () => {
-                        visDetalje(indhold)
+                        visDetalje(menu)
                     });
                 }
             })
         }
 
-        function visDetalje(indhold) {
+        function visDetalje(menu) {
+            console.log("menu");
+
+
 
             document.querySelector("#detalje").style.display = "block";
-
-
             document.querySelector("#detalje .luk").addEventListener("click", skjulDetalje);
+            document.querySelector("#detalje h2").textContent = menu.gsx$navn.$t;
+            document.querySelector("#detalje img").src = "/imgs/large/" + menu.gsx$billede.$t + ".jpg";
+            document.querySelector("#detalje img").alt = "billede af " + menu.gsx$billede.$t;
 
-
-            document.querySelector("#detalje h2").textContent = menuOversigt.gsx$navn.$t;
-            document.querySelector("#detalje img").src = .billede.$t;
-            document.querySelector("#detalje img").src = .billede.$t;
-
+            document.querySelector("#detalje .beskrivelse").textContent = menu.gsx$lang.$t;
+            document.querySelector("#detalje .oprindelse").textContent = "Fra " + menu.
+            gsx$oprindelse.$t;
 
         }
 
         function skjulDetalje() {
             document.querySelector("#detalje").style.display = "none";
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
