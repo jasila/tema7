@@ -25,51 +25,22 @@
             grid-gap: 1rem;
         }
 
+        splash {
+            background-image: url(splash.png);
+            background-size: cover;
+            max-width: none;
+            width: 100%;
+            height: 56.25vw;
+            background-position: 0% 0%;
+            margin-bottom: 30vh;
+        }
+
 
         img {
             width: 100%;
 
         }
 
-
-
-        splash .logo {
-            top: 10vh;
-            height: 40vw;
-            position: absolute;
-
-        }
-
-
-
-        splash .spin {
-            animation-name: spin_kf;
-            animation-duration: 10s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            pointer-events: none;
-            overflow-x: hidden;
-            position: relative;
-            top: 10vw;
-            height: 33vw;
-            right: 1vw;
-
-
-
-
-
-        }
-
-        @keyframes spin_kf {
-
-            from {
-                transform: rotate(360deg)
-            }
-
-            to {
-                transform: rotate(0deg)
-            }
-        }
 
         h1 {
             font-family: eurostile, sans-serif;
@@ -127,16 +98,18 @@
 
 
         /*
+
         img {
             filter: grayscale(100%);
             transition: .7s;
         }
-*/
+
 
         img:hover {
             filter: grayscale(0%);
 
         }
+*/
 
         .kategori {
             display: none;
@@ -146,8 +119,8 @@
 
             text-align: center;
             width: 5%;
-            margin-top: 0.5vh;
-            margin-bottom: ;
+            margin-top: 10vh;
+            margin-bottom: 100vh;
             background-color: #d0cac3;
             left: 45vw;
             position: absolute;
@@ -177,7 +150,7 @@
         }
 
         #lol {
-            margin-top: 30vh;
+            margin-top: 50vh;
         }
     </style>
 </head>
@@ -185,16 +158,16 @@
 <body>
     <splash>
 
-        <img class="logo" src="splash.svg" alt="jen">
-        <img class="spin" src="very_welcome.svg" alt="jen">
+        <img class="logo" src="splash_logo.svg" alt="jen">
 
     </splash>
 
 
-    <!--    <article class="blink pil_box">
+    <article class="blink pil_box">
         <a href="babushka-kopi.html#lol"> <img class="pil" src="pil.png" alt="arrow_down"></a>
     </article>
-     -->
+
+
 
 
     <h1 id="lol">MENU</h1>

@@ -1,0 +1,142 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 740">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d0cac3;
+      }
+
+      .cls-2 {
+        fill: #e50000;
+      }
+
+      .cls-3 {
+        fill: red;
+      }
+
+      .cls-4 {
+        fill: #ed1c24;
+      }
+
+      .cls-5 {
+        font-size: 101.22px;
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        font-family: Eurostile-Hea, Eurostile;
+      }
+
+      .cls-6 {
+        font-size: 32px;
+        font-family: MyriadPro-Regular, Myriad Pro;
+      }
+    </style>
+  </defs>
+  <title>splash_logo</title>
+  <rect class="cls-1" width="1920" height="740"/>
+  <g>
+    <circle class="cls-2" cx="917.5" cy="389.5" r="212"/>
+    <path class="cls-3" d="M917.5,178a210.78,210.78,0,1,1-82.33,16.62A210.2,210.2,0,0,1,917.5,178m0-1C800.14,177,705,272.14,705,389.5S800.14,602,917.5,602,1130,506.86,1130,389.5,1034.86,177,917.5,177Z"/>
+  </g>
+  <g>
+    <polygon class="cls-4" points="1329.84 89.84 1412.11 263.08 1024.29 341.1 1329.84 89.84"/>
+    <path class="cls-3" d="M1329.66,90.64l81.72,172.07-385.22,77.51,303.5-249.58m.35-1.59L1022.43,342l390.4-78.55L1330,89.05Z"/>
+  </g>
+  <g>
+    <text class="cls-5" transform="translate(734.68 174.77) rotate(-30.71)">B</text>
+    <text class="cls-5" transform="translate(789.32 143.72) rotate(-22.37)">I</text>
+    <text class="cls-5" transform="translate(811.74 132.96) rotate(-14.25)">S</text>
+    <text class="cls-5" transform="translate(869.92 118.35) rotate(-3.66)">T</text>
+    <text class="cls-5" transform="translate(921.21 114.23) rotate(7.09)">R</text>
+    <text class="cls-5" transform="translate(983.42 121.46) rotate(19.2)">O</text>
+    <text class="cls-5" transform="translate(1045.11 144.43) rotate(27.67)"> </text>
+    <text class="cls-5" transform="matrix(0.81, 0.59, -0.59, 0.81, 1066.29, 153.76)">B</text>
+    <text class="cls-5" transform="matrix(0.67, 0.74, -0.74, 0.67, 1116.92, 189.89)">A</text>
+    <text class="cls-5" transform="matrix(0.51, 0.86, -0.86, 0.51, 1159.61, 236.18)">B</text>
+    <text class="cls-5" transform="matrix(0.32, 0.95, -0.95, 0.32, 1191.64, 289.32)">U</text>
+    <text class="cls-5" transform="translate(1212.25 350.75) rotate(83.28)">S</text>
+    <text class="cls-5" transform="translate(1219.9 409.66) rotate(95.07)">H</text>
+    <text class="cls-5" transform="translate(1214.27 475.98) rotate(107.48)">K</text>
+    <text class="cls-5" transform="translate(1193.84 540.43) rotate(120.16)">A</text>
+    <image width="417" height="543" transform="translate(828.2 249.52) scale(0.52)" xlink:href="data:image/png;base64,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"/>
+  </g>
+  <text class="cls-6" transform="matrix(0.79, -0.62, 0.62, 0.79, 769.42, 205.99)"> </text>
+  <text class="cls-6" transform="translate(776.53 200.31) rotate(-34.7)">д</text>
+  <text class="cls-6" transform="translate(792.21 189.54) rotate(-30.01)">о</text>
+  <text class="cls-6" transform="translate(809.36 179.76) rotate(-25.28)">б</text>
+  <text class="cls-6" transform="matrix(0.94, -0.35, 0.35, 0.94, 826.63, 171.67)">р</text>
+  <text class="cls-6" transform="translate(845.76 164.65) rotate(-15.55)">о</text>
+  <text class="cls-6" transform="translate(864.96 159.55) rotate(-12.01)"> </text>
+  <text class="cls-6" transform="translate(873.81 157.58) rotate(-8.51)">п</text>
+  <text class="cls-6" transform="translate(893.1 154.78) rotate(-3.76)">о</text>
+  <text class="cls-6" transform="matrix(1, 0.02, -0.02, 1, 912.54, 153.5)">ж</text>
+  <text class="cls-6" transform="translate(936.34 154.3) rotate(6.36)">а</text>
+  <text class="cls-6" transform="translate(954.07 156.35) rotate(10.8)">л</text>
+  <text class="cls-6" transform="translate(972.14 159.86) rotate(15.47)">о</text>
+  <text class="cls-6" transform="translate(991.15 165.24) rotate(20.11)">в</text>
+  <text class="cls-6" transform="translate(1008.22 171.6) rotate(24.49)">а</text>
+  <text class="cls-6" transform="matrix(0.88, 0.48, -0.48, 0.88, 1024.04, 178.93)">т</text>
+  <text class="cls-6" transform="matrix(0.84, 0.54, -0.54, 0.84, 1037.4, 186.2)">ь</text>
+  <text class="cls-6" transform="translate(1052.67 196.16) rotate(35.82)"> </text>
+  <text class="cls-6" transform="matrix(0.79, 0.62, -0.62, 0.79, 1060.09, 201.58)"> </text>
+  <text class="cls-6" transform="translate(1067.31 207.29) rotate(40.26)"> </text>
+  <text class="cls-6" transform="translate(1074.3 213.1) rotate(43.69)">д</text>
+  <text class="cls-6" transform="translate(1088.01 226.29) rotate(48.35)">о</text>
+  <text class="cls-6" transform="matrix(0.6, 0.8, -0.8, 0.6, 1101.07, 241.13)">б</text>
+  <text class="cls-6" transform="translate(1112.49 256.42) rotate(57.83)">р</text>
+  <text class="cls-6" transform="matrix(0.46, 0.89, -0.89, 0.46, 1123.24, 273.7)">о</text>
+  <text class="cls-6" transform="translate(1132.14 291.48) rotate(66.24)"> </text>
+  <text class="cls-6" transform="translate(1135.88 299.75) rotate(69.75)">п</text>
+  <text class="cls-6" transform="translate(1142.55 318.05) rotate(74.55)">о</text>
+  <text class="cls-6" transform="translate(1147.73 336.8) rotate(79.76)">ж</text>
+  <text class="cls-6" transform="matrix(0.09, 1, -1, 0.09, 1151.73, 360.29)">а</text>
+  <text class="cls-6" transform="translate(1153.24 378.08) rotate(89.07)">л</text>
+  <text class="cls-6" transform="translate(1153.45 396.49) rotate(93.77)">о</text>
+  <text class="cls-6" transform="translate(1152.04 416.19) rotate(98.37)">в</text>
+  <text class="cls-6" transform="translate(1149.29 434.21) rotate(102.74)">а</text>
+  <text class="cls-6" transform="translate(1145.33 451.2) rotate(106.73)">т</text>
+  <text class="cls-6" transform="translate(1140.94 465.73) rotate(110.79)">ь</text>
+  <text class="cls-6" transform="translate(1134.28 482.72) rotate(114.13)"> </text>
+  <text class="cls-6" transform="matrix(-0.44, 0.9, -0.9, -0.44, 1130.48, 491.09)"> </text>
+  <text class="cls-6" transform="translate(1126.52 499.25) rotate(119.82)">д</text>
+  <text class="cls-6" transform="translate(1117 515.72) rotate(124.52)">о</text>
+  <text class="cls-6" transform="matrix(-0.63, 0.77, -0.77, -0.63, 1105.71, 531.95)">б</text>
+  <text class="cls-6" transform="matrix(-0.69, 0.72, -0.72, -0.69, 1093.59, 546.7)">р</text>
+  <text class="cls-6" transform="translate(1079.36 561.29) rotate(138.83)">о</text>
+  <text class="cls-6" transform="matrix(-0.79, 0.61, -0.61, -0.79, 1064.26, 574.19)"> </text>
+  <text class="cls-6" transform="matrix(-0.83, 0.56, -0.56, -0.83, 1057.13, 579.81)">п</text>
+  <text class="cls-6" transform="matrix(-0.87, 0.49, -0.49, -0.87, 1040.94, 590.71)">о</text>
+  <text class="cls-6" transform="translate(1024.01 600.26) rotate(155.76)">ж</text>
+  <text class="cls-6" transform="translate(1002.2 609.81) rotate(160.86)">а</text>
+  <text class="cls-6" transform="translate(985.33 615.59) rotate(165.33)">л</text>
+  <text class="cls-6" transform="translate(967.52 620.19) rotate(169.98)">о</text>
+  <text class="cls-6" transform="translate(948.02 623.51) rotate(174.6)">в</text>
+  <text class="cls-6" transform="translate(929.86 625.13) rotate(178.91)">а</text>
+  <text class="cls-6" transform="translate(912.41 625.35) rotate(-177.19)">т</text>
+  <text class="cls-6" transform="translate(897.25 624.59) rotate(-173.2)">ь</text>
+  <text class="cls-6" transform="matrix(-0.98, -0.18, 0.18, -0.98, 879.15, 622.23)"> </text>
+  <text class="cls-6" transform="translate(870.11 620.56) rotate(-167.62)"> </text>
+  <text class="cls-6" transform="translate(861.22 618.7) rotate(-164.16)">д</text>
+  <text class="cls-6" transform="matrix(-0.94, -0.35, 0.35, -0.94, 842.94, 613.44)">о</text>
+  <text class="cls-6" transform="matrix(-0.9, -0.43, 0.43, -0.9, 824.49, 606.4)">б</text>
+  <text class="cls-6" transform="translate(807.26 598.18) rotate(-149.87)">р</text>
+  <text class="cls-6" transform="matrix(-0.82, -0.57, 0.57, -0.82, 789.69, 587.86)">о</text>
+  <text class="cls-6" transform="translate(773.57 576.28) rotate(-141.51)"> </text>
+  <text class="cls-6" transform="matrix(-0.74, -0.67, 0.67, -0.74, 766.39, 570.69)">п</text>
+  <text class="cls-6" transform="matrix(-0.69, -0.73, 0.73, -0.69, 751.96, 557.6)">о</text>
+  <text class="cls-6" transform="matrix(-0.62, -0.79, 0.79, -0.62, 738.59, 543.42)">ж</text>
+  <text class="cls-6" transform="matrix(-0.55, -0.84, 0.84, -0.55, 724.09, 524.56)">а</text>
+  <text class="cls-6" transform="translate(714.41 509.57) rotate(-118.66)">л</text>
+  <text class="cls-6" transform="translate(705.63 493.39) rotate(-114.01)">о</text>
+  <text class="cls-6" transform="matrix(-0.33, -0.94, 0.94, -0.33, 697.7, 475.29)">в</text>
+  <text class="cls-6" transform="matrix(-0.26, -0.97, 0.97, -0.26, 691.75, 458.07)">а</text>
+  <text class="cls-6" transform="translate(687.35 441.18) rotate(-100.99)">т</text>
+  <text class="cls-6" transform="matrix(-0.12, -0.99, 0.99, -0.12, 684.48, 426.29)">ь</text>
+  <text class="cls-6" transform="translate(682.46 408.13) rotate(-93.65)"> </text>
+  <text class="cls-6" transform="matrix(-0.03, -1, 1, -0.03, 681.92, 398.96)"> </text>
+  <text class="cls-6" transform="matrix(0.03, -1, 1, 0.03, 681.61, 389.85)">д</text>
+  <text class="cls-6" transform="translate(682.32 370.85) rotate(-83.4)">о</text>
+  <text class="cls-6" transform="translate(684.69 351.25) rotate(-78.68)">б</text>
+  <text class="cls-6" transform="translate(688.5 332.55) rotate(-73.86)">р</text>
+  <text class="cls-6" transform="matrix(0.36, -0.93, 0.93, 0.36, 694.27, 313.01)">о</text>
+  <text class="cls-6" transform="translate(701.63 294.56) rotate(-65.41)"> </text>
+</svg>
