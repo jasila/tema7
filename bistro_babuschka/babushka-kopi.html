@@ -50,6 +50,32 @@
 
         }
 
+        #detalje {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+            background: #d0cac3;
+
+        }
+
+        #detalje .luk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 4rem;
+        }
+
+        #detalje .indhold {
+
+            width: 60vw;
+            min-height: 50vh;
+            margin: 4rem auto;
+            padding: 4rem;
+            background: white;
+        }
+
         .menu {
             font-family: eurostile, sans-serif;
             text-align: center;
@@ -152,6 +178,7 @@
         #lol {
             margin-top: 50vh;
         }
+
     </style>
 </head>
 
@@ -182,6 +209,13 @@
     </nav>
 
     <section id="liste"></section>
+    <section id="detalje">
+        <article class="indhold">
+            <button class="luk">x</button>
+            <h2></h2>
+            <img src="" alt="">
+        </article>
+    </section>
 
     <template>
         <article class="Menu">
@@ -270,9 +304,37 @@
                     klon.querySelector(".kategori").textContent = menu.gsx$kategori.$t;
                     klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
                     //den der gør det bliver vidst
+
                     liste.appendChild(klon);
+
+
+                    liste.lastElementChild.addEventListener("click", () => {
+                        visDetalje(indhold)
+                    });
                 }
             })
         }
+
+        function visDetalje(indhold) {
+
+            document.querySelector("#detalje").style.display = "block";
+
+
+            document.querySelector("#detalje .luk").addEventListener("click", skjulDetalje);
+
+
+            document.querySelector("#detalje h2").textContent = menuOversigt.gsx$navn.$t;
+            document.querySelector("#detalje img").src = .billede.$t;
+            document.querySelector("#detalje img").src = .billede.$t;
+
+
+        }
+
+        function skjulDetalje() {
+            document.querySelector("#detalje").style.display = "none";
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
