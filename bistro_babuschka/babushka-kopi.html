@@ -25,9 +25,50 @@
             grid-gap: 1rem;
         }
 
+
         img {
             width: 100%;
 
+        }
+
+
+
+        splash .logo {
+            top: 10vh;
+            height: 40vw;
+            position: absolute;
+
+        }
+
+
+
+        splash .spin {
+            animation-name: spin_kf;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            pointer-events: none;
+            overflow-x: hidden;
+            position: relative;
+            top: 10vw;
+            height: 33vw;
+            right: 1vw;
+
+
+
+
+
+        }
+
+        @keyframes spin_kf {
+
+            from {
+                transform: rotate(360deg)
+            }
+
+            to {
+                transform: rotate(0deg)
+            }
         }
 
         h1 {
@@ -121,6 +162,8 @@
         }
 
 
+
+
         @keyframes blink_kf {
             0% {
                 opacity: 1;
@@ -143,14 +186,15 @@
     <splash>
 
         <img class="logo" src="splash.svg" alt="jen">
-
-        <article class="blink pil_box">
-            <a href="babushka-kopi.html#lol"> <img class="pil" src="pil.png" alt="arrow_down"></a>
-        </article>
-
+        <img class="spin" src="very_welcome.svg" alt="jen">
 
     </splash>
 
+
+    <!--    <article class="blink pil_box">
+        <a href="babushka-kopi.html#lol"> <img class="pil" src="pil.png" alt="arrow_down"></a>
+    </article>
+     -->
 
 
     <h1 id="lol">MENU</h1>
