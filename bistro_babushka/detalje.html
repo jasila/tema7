@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalje</title>
+
+</head>
+
+<body>
+    <style>
+        img {
+            width: 100%;
+
+        }
+
+        #detalje {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+            background: hsla(32, 12%, 79%, 0.37);
+            overflow: scroll;
+            margin: 0;
+        }
+
+        #detalje .luk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 4rem;
+        }
+
+        #detalje .indhold {
+
+            width: 50vw;
+            min-height: 50vh;
+            margin: 4rem auto;
+            /*            padding: 4rem;*/
+            overflow: scroll;
+
+        }
+
+    </style>
+
+    <section id="detalje">
+        <article class="indhold">
+            <button class="luk">x</button>
+            <h2></h2>
+            <p class="oprindelse"> </p>
+
+            <img src="" alt="">
+
+
+            <img src="" alt="">
+
+            <p class="beskrivelse"> </p>
+
+            <p class="pris"> </p>
+
+            <p class="kategori"> </p>
+            <p class="id"></p>
+
+            <p></p>
+        </article>
+    </section>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const unik = urlParams.get("id");
+        let jsonUrl = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
+
+        let menuOversigt = [];
+
+
+        function start() {
+            console.log("start")
+
+            hentJson();
+
+        }
+
+        async function hentJson() {
+            const myJson = await fetch(jsonUrl);
+            menuOversigt = await myJson.json();
+            vis();
+        }
+
+        function vis() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const unik = urlParams.get("id");
+
+            menuOversigt.feed.entry.forEach(menu => {
+
+                if (menu.gsx$id.$t == unik) {
+
+                    document.querySelector("#detalje h2").textContent = menu.gsx$navn.$t;
+                    document.querySelector("#detalje img").src = "/imgs/large/" + menu.gsx$billede.$t + ".jpg";
+                    document.querySelector("#detalje img").alt = "billede af " + menu.gsx$billede.$t;
+                    document.querySelector("#detalje .beskrivelse").textContent = menu.gsx$lang.$t;
+                    document.querySelector("#detalje .oprindelse").textContent = "Fra " + menu.gsx$oprindelse.$t;
+                    document.querySelector("#detalje .id").textContent = menu.gsx$id.$t;
+
+                    document.querySelector("img").alt = "billede af" + menu.navn;
+
+                    document.querySelector(".luk").addEventListener("click", () => {
+                        history.back();
+                    });
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

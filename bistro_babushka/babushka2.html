@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bistro Babushka</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #d0cac3;
+            color: #050000;
+        }
+
+        article {
+            padding: 20px;
+            background-color: #e0e0dd;
+            font-family: eurostile, sans-serif;
+        }
+
+        section {
+            width: 80vw;
+            margin: 1vw auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        splash {
+            background-image: url(splash.png);
+            background-size: cover;
+            max-width: none;
+            width: 100%;
+            height: 56.25vw;
+            background-position: 0% 0%;
+            margin-bottom: 30vh;
+        }
+
+
+        img {
+            width: 100%;
+
+        }
+
+
+        h1 {
+            font-family: eurostile, sans-serif;
+            text-align: center;
+            font-size: 4rem;
+
+
+        }
+
+        #detalje {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+            background: hsla(32, 12%, 79%, 0.37);
+            overflow: scroll;
+            margin: 0;
+        }
+
+        #detalje .luk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 4rem;
+        }
+
+        #detalje .indhold {
+
+            width: 50vw;
+            min-height: 50vh;
+            margin: 4rem auto;
+            /*            padding: 4rem;*/
+            overflow: scroll;
+
+        }
+
+        .menu {
+            font-family: eurostile, sans-serif;
+            text-align: center;
+            font-size: 3rem;
+
+
+        }
+
+        .pris {
+            font-size: 2rem;
+            font-family: eurostile, serif;
+            text-align: right;
+
+
+        }
+
+        p {
+            font-family: eurostile, sans-serif;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: #13137e;
+        }
+
+        nav {
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #d0cac3;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: eurostile, sans-serif;
+            font-size: 2.2rem;
+
+        }
+
+
+
+        /*
+
+        img {
+            filter: grayscale(100%);
+            transition: .7s;
+        }
+
+
+        img:hover {
+            filter: grayscale(0%);
+
+        }
+*/
+
+        .kategori {
+            display: none;
+        }
+
+        .pil_box {
+
+            text-align: center;
+            width: 5%;
+            margin-top: 10vh;
+            margin-bottom: 100vh;
+            background-color: #d0cac3;
+            left: 45vw;
+            position: absolute;
+        }
+
+        .blink {
+            animation-name: blink_kf;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+
+        }
+
+
+
+
+        @keyframes blink_kf {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+
+        }
+
+        #lol {
+            margin-top: 50vh;
+        }
+
+    </style>
+</head>
+
+<body>
+    <splash>
+
+        <img class="logo" src="splash_logo.svg" alt="jen">
+
+    </splash>
+
+
+    <article class="blink pil_box">
+        <a href="babushka-kopi.html#lol"> <img class="pil" src="pil.png" alt="arrow_down"></a>
+    </article>
+
+
+
+
+    <h1 id="lol">MENU</h1>
+    <nav>
+        <!--        <button data-kategori="alle">Alle</button>-->
+        <button data-kategori="hovedretter" class="valgt">Hovedretter</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="sideorders">Sideorders</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+
+    </nav>
+
+    <section id="liste"></section>
+    <section id="detalje">
+        <article class="indhold">
+            <button class="luk">x</button>
+            <h2></h2>
+            <p class="oprindelse"> </p>
+
+            <img src="" alt="">
+
+
+            <img src="" alt="">
+
+            <p class="beskrivelse"> </p>
+
+            <p class="pris"> </p>
+
+            <p class="kategori"> </p>
+        </article>
+    </section>
+
+    <template>
+        <article class="Menu">
+            <h2></h2>
+            <p class="navn"> </p>
+
+            <img src="" alt="">
+
+            <p class="oprindelse"> </p>
+
+            <p class="pris"> </p>
+
+            <p class="kategori"> </p>
+
+
+            <p class=""> </p>
+        </article>
+    </template>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const unik = urlParams.get("id");
+        let menuOversigt = [];
+        let filter = "forretter"
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            document.querySelector("#detalje").style.display = "none";
+
+            let button = document.querySelectorAll("nav button");
+
+            button.forEach(knap => knap.addEventListener("click", filtrerMad));
+
+            hentJson();
+        }
+
+        function filtrerMad() {
+
+            console.log("hej")
+
+            filter = this.dataset.kategori; //sæt filter til aktuel kategori
+            //            document.querySelector(".valgt").classList.remove("valgt")
+            //
+            //            this.classList.add("valgt") // marker den nyvalgte knap
+            menuOversigtFunktion(); // kald funktionen vis igen med nyt filter
+
+
+        }
+
+        //henter min data
+
+        async function hentJson() {
+            console.log("hejehj")
+
+            const myJson = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            console.log(myJson);
+
+            menuOversigt = await myJson.json();
+            console.log(hentJson);
+
+
+            menuOversigtFunktion();
+        }
+
+        //viser al min data
+        function menuOversigtFunktion() {
+            console.log("her")
+            const temp = document.querySelector("template").content;
+            const liste = document.querySelector("#liste");
+
+            liste.textContent = "";
+            //alt jeg putter ind i menuoversigt
+            menuOversigt.feed.entry.forEach(menu => {
+                const klon = temp.cloneNode(true);
+
+
+                // console.log(klon);
+
+                if (menu.gsx$kategori.$t == filter || filter == "alle") {
+
+
+
+                    klon.querySelector("h2").textContent = menu.gsx$navn.$t;
+                    klon.querySelector("h2").setAttribute("id", "menu");
+                    klon.querySelector("img").src = "/imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector("img").alt = "billedeaf" + menu.gsx$billede.$t;
+                    klon.querySelector(".pris").textContent = +menu.gsx$pris.$t + ",-";
+                    klon.querySelector(".kategori").textContent = menu.gsx$kategori.$t;
+                    klon.querySelector(".oprindelse").textContent = menu.gsx$kort.$t;
+                    //den der gør det bliver vidst
+
+                    liste.appendChild(klon);
+                    liste.lastElementChild.addEventListener("click", () => {
+                        location.href = `detalje.html?id=${menu.gsx$id.$t}`;
+                    });
+                }
+            })
+        }
+
+        function visDetalje(menu) {
+            console.log("menu");
+
+
+
+            document.querySelector("#detalje").style.display = "block";
+            document.querySelector("#detalje .luk").addEventListener("click", skjulDetalje);
+            document.querySelector("#detalje h2").textContent = menu.gsx$navn.$t;
+            document.querySelector("#detalje img").src = "/imgs/large/" + menu.gsx$billede.$t + ".jpg";
+            document.querySelector("#detalje img").alt = "billede af " + menu.gsx$billede.$t;
+            document.querySelector("#detalje .beskrivelse").textContent = menu.gsx$lang.$t;
+            document.querySelector("#detalje .oprindelse").textContent = "Fra " + menu.
+            gsx$oprindelse.$t;
+
+        }
+
+        function skjulDetalje() {
+            document.querySelector("#detalje").style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>
