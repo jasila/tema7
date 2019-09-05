@@ -180,6 +180,7 @@
         #lol {
             margin-top: 50vh;
         }
+
     </style>
 </head>
 
@@ -312,7 +313,7 @@
 
                     klon.querySelector("h2").textContent = menu.gsx$navn.$t;
                     klon.querySelector("h2").setAttribute("id", "menu");
-                    klon.querySelector("img").src = "/imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector("img").src = "imgs/small/" + menu.gsx$billede.$t + "-sm.jpg";
                     klon.querySelector("img").alt = "billedeaf" + menu.gsx$billede.$t;
                     klon.querySelector(".pris").textContent = +menu.gsx$pris.$t + ",-";
                     klon.querySelector(".kategori").textContent = menu.gsx$kategori.$t;
@@ -337,7 +338,7 @@
             document.querySelector("#detalje").style.display = "block";
             document.querySelector("#detalje .luk").addEventListener("click", skjulDetalje);
             document.querySelector("#detalje h2").textContent = menu.gsx$navn.$t;
-            document.querySelector("#detalje img").src = "/imgs/large/" + menu.gsx$billede.$t + ".jpg";
+            document.querySelector("#detalje img").src = "imgs/large/" + menu.gsx$billede.$t + ".jpg";
             document.querySelector("#detalje img").alt = "billede af " + menu.gsx$billede.$t;
             document.querySelector("#detalje .beskrivelse").textContent = menu.gsx$lang.$t;
             document.querySelector("#detalje .oprindelse").textContent = "Fra " + menu.
@@ -348,5 +349,8 @@
         function skjulDetalje() {
             document.querySelector("#detalje").style.display = "none";
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

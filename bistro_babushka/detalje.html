@@ -52,6 +52,7 @@
         .id {
             display: none;
         }
+
     </style>
 
     <section id="detalje">
@@ -109,7 +110,7 @@
                 if (menu.gsx$id.$t == unik) {
 
                     document.querySelector("#detalje h2").textContent = menu.gsx$navn.$t;
-                    document.querySelector("#detalje img").src = "/imgs/large/" + menu.gsx$billede.$t + ".jpg";
+                    document.querySelector("#detalje img").src = "imgs/large/" + menu.gsx$billede.$t + ".jpg";
                     document.querySelector("#detalje img").alt = "billede af " + menu.gsx$billede.$t;
                     document.querySelector("#detalje .beskrivelse").textContent = menu.gsx$lang.$t;
                     document.querySelector("#detalje .oprindelse").textContent = "Fra " + menu.gsx$oprindelse.$t;
@@ -123,5 +124,8 @@
                 }
             })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
